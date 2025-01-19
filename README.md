@@ -71,7 +71,7 @@ MCog Core is released under the [Creative Commons Attribution 4.0 International 
 
 If you use MCog Core in your research or applications, please cite it as follows:
 
-Shep Bryan. (2025). MCog Core: A Metacognition Ontology (Version 1.0) [Ontology]. Retrieved from [[Github](https://github.com/galaxy-brain-ai/mcog)]
+Shep Bryan, Galaxy Brain AI. (2025). MCog Core: A Metacognition Ontology (Version 1.0) [Ontology Resource]. Retrieved from (https://github.com/galaxy-brain-ai/mcog-core).
 
 ## Contact
 
