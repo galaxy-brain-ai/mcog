@@ -1,0 +1,244 @@
+@prefix mcog-core: [https://github.com/galaxy-brain-ai/mcog#](https://github.com/galaxy-brain-ai/mcog) .  
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+################################################################################
+# ONTOLOGY HEADER
+################################################################################
+
+mcog-core: a owl:Ontology ;
+  dct:title "Metacognitive Core (MCog Core)" ;
+  dct:description """
+A domain-agnostic ontology capturing universal metacognitive constructs,
+including reasoning processes, beliefs, biases, heuristics, reflections,
+and learning loops.
+"""@en ;
+  dct:creator "Your Name or Organization" ;
+  dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+  owl:versionInfo "v1.1" .
+
+################################################################################
+# CLASSES
+################################################################################
+
+### Base Metacognitive Classes ###
+
+mcog-core:ReasoningProcess a owl:Class ;
+  rdfs:label "Reasoning Process" ;
+  dct:description "A structured process of analyzing information, forming beliefs, or reaching conclusions. In metacognition, this often involves reflecting on the process itself."@en .
+
+mcog-core:Heuristic a owl:Class ;
+  rdfs:label "Heuristic" ;
+  dct:description "A mental shortcut or rule-of-thumb used to simplify complex reasoning or decision-making. Metacognition can involve evaluating the appropriateness and effectiveness of heuristics."@en .
+
+mcog-core:Proposition a owl:Class ;
+  rdfs:label "Proposition" ;
+  dct:description "A statement, assertion, or idea that can be held to be true or false, believed or disbelieved. In metacognition, propositions are the objects of reflection and evaluation."@en .
+
+mcog-core:Hypothesis a owl:Class ;
+  rdfs:label "Hypothesis" ;
+  rdfs:subClassOf mcog-core:Proposition ;
+  dct:description "A proposed explanation, assumption, or prediction that can be evaluated or acted upon. This can range from informal assumptions in everyday reasoning to formal scientific hypotheses. Metacognitively, we often assess the evidence for and against our hypotheses."@en .
+
+mcog-core:Reflection a owl:Class ;
+  rdfs:label "Reflection" ;
+  dct:description "An introspective or evaluative meta-analysis of a reasoning process, belief, or mental state. Reflection is a core component of metacognition."@en .
+
+mcog-core:Bias a owl:Class ;
+  rdfs:label "Bias" ;
+  dct:description "A systematic error or skew in judgment that can distort reasoning or belief formation. Metacognition involves recognizing and potentially mitigating biases."@en .
+
+mcog-core:CertaintyEvaluation a owl:Class ;
+  rdfs:label "Certainty Evaluation" ;
+  dct:description "An assessment or representation of the degree to which a proposition is believed or considered true. In metacognition, this often involves reflecting on one's own knowledge and assessing the level of confidence in that knowledge."@en .
+
+mcog-core:ConfidenceAssessment a owl:Class ;
+  rdfs:label "Confidence Assessment" ;
+  rdfs:subClassOf mcog-core:CertaintyEvaluation ;
+  dct:description "An appraisal of certainty regarding a proposition, belief, or decision. This can range from an informal, intuitive feeling of confidence to a formal, quantitative assessment of probability or likelihood. Metacognitively, we monitor our confidence levels and adjust our actions accordingly."@en .
+
+mcog-core:FeedbackLoop a owl:Class ;
+  rdfs:label "Feedback Loop" ;
+  dct:description "A mechanism by which outputs of a process are reintroduced as inputs for further refinement or self-regulation. Feedback loops are crucial for metacognitive control and learning."@en .
+
+mcog-core:LearningProcess a owl:Class ;
+  rdfs:label "Learning Process" ;
+  dct:description "A process that assimilates new information to update or improve reasoning, behavior, or mental models. Metacognition plays a key role in guiding and optimizing learning."@en .
+
+### Optional: Subclasses of ReasoningProcess ###
+
+mcog-core:AbductiveProcess a owl:Class ;
+  rdfs:label "Abductive Process" ;
+  rdfs:subClassOf mcog-core:ReasoningProcess ;
+  dct:description "Reasoning that formulates the most plausible explanation from incomplete observations. Metacognitively, we might reflect on the limitations and potential biases of our abductive inferences."@en .
+
+mcog-core:InductiveProcess a owl:Class ;
+  rdfs:label "Inductive Process" ;
+  rdfs:subClassOf mcog-core:ReasoningProcess ;
+  dct:description "Reasoning that generalizes from specific instances to broad patterns. Metacognition can involve evaluating the strength and validity of our inductive generalizations."@en .
+
+mcog-core:DeductiveProcess a owl:Class ;
+  rdfs:label "Deductive Process" ;
+  rdfs:subClassOf mcog-core:ReasoningProcess ;
+  dct:description "Reasoning deriving logically certain conclusions from general premises. Metacognitively, we might check our deductive inferences for errors or inconsistencies."@en .
+
+### Optional: Subclasses of LearningProcess ###
+
+mcog-core:DoubleLoopLearning a owl:Class ;
+  rdfs:label "Double-Loop Learning" ;
+  rdfs:subClassOf mcog-core:LearningProcess ;
+  dct:description "Learning that revisits not just actions, but also underlying assumptions and strategies. This type of learning often arises from metacognitive reflection on the limitations of our current approaches."@en .
+
+mcog-core:TripleLoopLearning a owl:Class ;
+  rdfs:label "Triple-Loop Learning" ;
+  rdfs:subClassOf mcog-core:LearningProcess ;
+  dct:description "A deeper form of learning that questions fundamental norms, values, and identity. This can be triggered by metacognitive insights into the broader context and implications of our beliefs and actions."@en .
+
+################################################################################
+# OBJECT PROPERTIES
+################################################################################
+
+mcog-core:usesHeuristic a owl:ObjectProperty ;
+  rdfs:label "uses Heuristic" ;
+  rdfs:domain mcog-core:ReasoningProcess ;
+  rdfs:range mcog-core:Heuristic ;
+  dct:description "Indicates a reasoning process that applies or employs a particular heuristic."@en .
+
+mcog-core:generatesProposition a owl:ObjectProperty ;
+  rdfs:label "generates Proposition" ;
+  rdfs:domain mcog-core:ReasoningProcess ;
+  rdfs:range mcog-core:Proposition ;
+  dct:description "Specifies that a reasoning process produces or articulates a proposition."@en .
+
+mcog-core:generatesHypothesis a owl:ObjectProperty ;
+  rdfs:label "generates Hypothesis" ;
+  rdfs:subPropertyOf mcog-core:generatesProposition ;
+  rdfs:domain mcog-core:ReasoningProcess ;
+  rdfs:range mcog-core:Hypothesis ;
+  dct:description "Specifies that a reasoning process produces or articulates a hypothesis."@en .
+
+mcog-core:evaluatesProposition a owl:ObjectProperty ;
+  rdfs:label "evaluates Proposition" ;
+  rdfs:domain mcog-core:ReasoningProcess ;
+  rdfs:range mcog-core:Proposition ;
+  dct:description "Indicates that a reasoning process assesses the validity, truth, or likelihood of a proposition."@en .
+
+mcog-core:testsHypothesis a owl:ObjectProperty ;
+  rdfs:label "tests Hypothesis" ;
+  rdfs:subPropertyOf mcog-core:evaluatesProposition ;
+  rdfs:domain mcog-core:ReasoningProcess ;
+  rdfs:range mcog-core:Hypothesis ;
+  dct:description "Specifies that a reasoning process evaluates or validates a particular hypothesis."@en .
+
+mcog-core:reflectsOn a owl:ObjectProperty ;
+  rdfs:label "reflects On" ;
+  rdfs:domain mcog-core:Reflection ;
+  rdfs:range [ a owl:Class ; owl:unionOf ( mcog-core:ReasoningProcess mcog-core:Proposition mcog-core:CertaintyEvaluation ) ] ;
+  dct:description "Links a reflection to the reasoning process, proposition, or certainty evaluation it critiques or evaluates."@en .
+
+mcog-core:identifiedBias a owl:ObjectProperty ;
+  rdfs:label "identified Bias" ;
+  rdfs:domain mcog-core:Reflection ;
+  rdfs:range mcog-core:Bias ;
+  dct:description "Connects a reflection to any biases discovered during introspective analysis."@en .
+
+mcog-core:hasCertaintyEvaluation a owl:ObjectProperty ;
+  rdfs:label "has Certainty Evaluation" ;
+  rdfs:domain mcog-core:Proposition ;
+  rdfs:range mcog-core:CertaintyEvaluation ;
+  dct:description "Links a proposition to an assessment of its certainty or likelihood."@en .
+
+mcog-core:hasConfidenceAssessment a owl:ObjectProperty ;
+  rdfs:label "has Confidence Assessment" ;
+  rdfs:subPropertyOf mcog-core:hasCertaintyEvaluation ;
+  rdfs:domain mcog-core:Hypothesis ;
+  rdfs:range mcog-core:ConfidenceAssessment ;
+  dct:description "Links a hypothesis to a confidence assessment evaluating its likelihood or plausibility."@en .
+
+mcog-core:feedbackLoopFor a owl:ObjectProperty ;
+  rdfs:label "feedback Loop For" ;
+  rdfs:domain mcog-core:FeedbackLoop ;
+  rdfs:range mcog-core:ReasoningProcess ;
+  dct:description "Indicates which reasoning process the feedback loop is meant to refine or improve."@en .
+
+################################################################################
+# DATATYPE PROPERTIES
+################################################################################
+
+mcog-core:propositionContent a owl:DatatypeProperty ;
+  rdfs:label "proposition Content" ;
+  rdfs:domain mcog-core:Proposition ;
+  rdfs:range xsd:string ;
+  dct:description "The textual or symbolic content of a proposition."@en .
+
+mcog-core:hypothesisContent a owl:DatatypeProperty ;
+  rdfs:label "hypothesis Content" ;
+  rdfs:subPropertyOf mcog-core:propositionContent ;
+  rdfs:domain mcog-core:Hypothesis ;
+  rdfs:range xsd:string ;
+  dct:description "A textual statement or representation of the hypothesis."@en .
+
+mcog-core:certaintyValue a owl:DatatypeProperty ;
+  rdfs:label "certainty Value" ;
+  rdfs:domain mcog-core:CertaintyEvaluation ;
+  rdfs:range xsd:float ;
+  dct:description "A quantitative measure of certainty or confidence (e.g., probability, confidence level)."@en .
+
+mcog-core:confidenceValue a owl:DatatypeProperty ;
+  rdfs:label "confidence Value" ;
+  rdfs:subPropertyOf mcog-core:certaintyValue ;
+  rdfs:domain mcog-core:ConfidenceAssessment ;
+  rdfs:range xsd:float ;
+  dct:description "A numerical score (e.g., 0.0 to 1.0) reflecting confidence in the related hypothesis or conclusion."@en .
+
+mcog-core:evaluationRationale a owl:DatatypeProperty ;
+  rdfs:label "evaluation Rationale" ;
+  rdfs:domain mcog-core:CertaintyEvaluation ;
+  rdfs:range xsd:string ;
+  dct:description "A justification or explanation for the assigned certainty value."@en .
+
+mcog-core:confidenceRationale a owl:DatatypeProperty ;
+  rdfs:label "confidence Rationale" ;
+  rdfs:subPropertyOf mcog-core:evaluationRationale ;
+  rdfs:domain mcog-core:ConfidenceAssessment ;
+  rdfs:range xsd:string ;
+  dct:description "A brief explanation or justification for the assigned confidence value."@en .
+
+mcog-core:reflectionText a owl:DatatypeProperty ;
+  rdfs:label "reflection Text" ;
+  rdfs:domain mcog-core:Reflection ;
+  rdfs:range xsd:string ;
+  dct:description "Free-text capturing the introspective commentary or critique of the reasoning process, proposition, or certainty evaluation."@en .
+
+mcog-core:reflectionTimestamp a owl:DatatypeProperty ;
+  rdfs:label "reflection Timestamp" ;
+  rdfs:domain mcog-core:Reflection ;
+  rdfs:range xsd:dateTime ;
+  dct:description "Records the date/time at which the reflection occurred."@en .
+
+mcog-core:heuristicName a owl:DatatypeProperty ;
+  rdfs:label "heuristic Name" ;
+  rdfs:domain mcog-core:Heuristic ;
+  rdfs:range xsd:string ;
+  dct:description "A label or title for the heuristic (e.g., 'Availability Heuristic', 'Representativeness Heuristic')."@en .
+
+mcog-core:biasName a owl:DatatypeProperty ;
+  rdfs:label "bias Name" ;
+  rdfs:domain mcog-core:Bias ;
+  rdfs:range xsd:string ;
+  dct:description "A label or name for the cognitive bias (e.g., 'Confirmation Bias', 'Anchoring Bias')."@en .
+
+mcog-core:biasImpact a owl:DatatypeProperty ;
+  rdfs:label "bias Impact" ;
+  rdfs:domain mcog-core:Bias ;
+  rdfs:range xsd:string ;
+  dct:description "Description of how this bias might distort or affect a reasoning process, belief formation, or decision-making."@en .
+
+mcog-core:biasMitigationStrategy a owl:DatatypeProperty ;
+  rdfs:label "bias Mitigation Strategy" ;
+  rdfs:domain mcog-core:Bias ;
+  rdfs:range xsd:string ;
+  dct:description "An approach or tactic to reduce or counteract the effects of the bias (e.g., 'consider the opposite', 'seek disconfirming evidence')."@en .
