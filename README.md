@@ -38,7 +38,7 @@ The MCog Core ontology is available in Turtle (.ttl) format: [mcog-core.ttl](mco
 ```turtle
 # Example instance of a Hypothesis with a ConfidenceAssessment
 
-@prefix mcog-core: <https://github.com/galaxy-brain-ai/mcog> .
+@prefix mcog-core: <https://github.com/galaxy-brain-ai/mcog-core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <MyHypothesis> a mcog-core:Hypothesis ;
