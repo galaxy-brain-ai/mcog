@@ -76,5 +76,7 @@ Shep Bryan, Galaxy Brain AI. (2025). MCog Core: A Metacognition Ontology (Versio
 ## Contact
 
 Shep Bryan, Galaxy Brain
+
 shep@galaxy-brain.ai
-galaxy-brain.aii
+
+galaxy-brain.ai
