@@ -1,4 +1,4 @@
-@prefix mcog-core: [https://github.com/galaxy-brain-ai/mcog-core#](https://github.com/galaxy-brain-ai/mcog-core) .  
+@prefix mcog-core: <https://github.com/galaxy-brain-ai/mcog-core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -10,21 +10,21 @@
 ################################################################################
 
 mcog-core: a owl:Ontology ;
-  dct:title "Metacognitive Core (MCog Core)" ;
+  dct:title "Metacognitive Core (MCog Core) - Biomimicry & Ephemeral v2.1" ;
   dct:description """
 A domain-agnostic ontology capturing universal metacognitive constructs,
 including reasoning processes, beliefs, biases, heuristics, reflections,
-and learning loops.
+and learning loops. In this v2.1 release, we've expanded ephemeral reasoning
+capabilities and introduced biomimicry-inspired dimensions to model
+naturally fleeting or transient cognitive states.
 """@en ;
-  dct:creator "Your Name or Organization" ;
+  dct:creator "Original MCog Core Authors + QAIS Enhancements" ;
   dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-  owl:versionInfo "v1.1" .
+  owl:versionInfo "v2.1 - Biomimicry & Ephemeral Cognition" .
 
 ################################################################################
-# CLASSES
+# BASE CLASSES (FROM v1.x)
 ################################################################################
-
-### Base Metacognitive Classes ###
 
 mcog-core:ReasoningProcess a owl:Class ;
   rdfs:label "Reasoning Process" ;
@@ -58,7 +58,7 @@ mcog-core:CertaintyEvaluation a owl:Class ;
 mcog-core:ConfidenceAssessment a owl:Class ;
   rdfs:label "Confidence Assessment" ;
   rdfs:subClassOf mcog-core:CertaintyEvaluation ;
-  dct:description "An appraisal of certainty regarding a proposition, belief, or decision. This can range from an informal, intuitive feeling of confidence to a formal, quantitative assessment of probability or likelihood. Metacognitively, we monitor our confidence levels and adjust our actions accordingly."@en .
+  dct:description "An appraisal of certainty regarding a proposition, belief, or decision. This can range from an informal, intuitive feeling of confidence to a formal, quantitative assessment. Metacognitively, we monitor our confidence levels and adjust our actions accordingly."@en .
 
 mcog-core:FeedbackLoop a owl:Class ;
   rdfs:label "Feedback Loop" ;
@@ -68,12 +68,14 @@ mcog-core:LearningProcess a owl:Class ;
   rdfs:label "Learning Process" ;
   dct:description "A process that assimilates new information to update or improve reasoning, behavior, or mental models. Metacognition plays a key role in guiding and optimizing learning."@en .
 
-### Optional: Subclasses of ReasoningProcess ###
+################################################################################
+# SUBCLASSES FROM PREVIOUS VERSIONS
+################################################################################
 
 mcog-core:AbductiveProcess a owl:Class ;
   rdfs:label "Abductive Process" ;
   rdfs:subClassOf mcog-core:ReasoningProcess ;
-  dct:description "Reasoning that formulates the most plausible explanation from incomplete observations. Metacognitively, we might reflect on the limitations and potential biases of our abductive inferences."@en .
+  dct:description "Reasoning that formulates the most plausible explanation from incomplete observations. Metacognitively, we might reflect on the limitations and biases of our abductive inferences."@en .
 
 mcog-core:InductiveProcess a owl:Class ;
   rdfs:label "Inductive Process" ;
@@ -84,8 +86,6 @@ mcog-core:DeductiveProcess a owl:Class ;
   rdfs:label "Deductive Process" ;
   rdfs:subClassOf mcog-core:ReasoningProcess ;
   dct:description "Reasoning deriving logically certain conclusions from general premises. Metacognitively, we might check our deductive inferences for errors or inconsistencies."@en .
-
-### Optional: Subclasses of LearningProcess ###
 
 mcog-core:DoubleLoopLearning a owl:Class ;
   rdfs:label "Double-Loop Learning" ;
@@ -98,7 +98,58 @@ mcog-core:TripleLoopLearning a owl:Class ;
   dct:description "A deeper form of learning that questions fundamental norms, values, and identity. This can be triggered by metacognitive insights into the broader context and implications of our beliefs and actions."@en .
 
 ################################################################################
-# OBJECT PROPERTIES
+# CLASSES FROM V2.0 (Quantum/Stealth)
+################################################################################
+
+mcog-core:QuantumCognitionProcess a owl:Class ;
+  rdfs:label "Quantum Cognition Process" ;
+  rdfs:subClassOf mcog-core:ReasoningProcess ;
+  dct:description """
+An advanced reasoning process that draws upon principles analogous to quantum mechanics,
+e.g., superposition-like uncertainty states or entangled decision variables. 
+"""@en .
+
+mcog-core:StealthModality a owl:Class ;
+  rdfs:label "Stealth Modality" ;
+  dct:description """
+A conceptual modality indicating specialized approaches, protocols, or states of reasoning
+that may remain hidden, fleeting, or obfuscated. While originally oriented toward 
+confidential environments, it can also represent ephemeral or partially concealed 
+cognitive processes akin to fleeting sub-conscious reflections.
+"""@en .
+
+mcog-core:MultiLevelFeedbackLoop a owl:Class ;
+  rdfs:label "Multi-Level Feedback Loop" ;
+  rdfs:subClassOf mcog-core:FeedbackLoop ;
+  dct:description """
+A feedback loop architecture that operates across multiple layers or modules 
+(e.g., neurological, symbolic, quantum) for iterative self-regulation. 
+"""@en .
+
+################################################################################
+# NEW BIOMIMICRY & EPHEMERAL CLASSES (V2.1)
+################################################################################
+
+mcog-core:EphemeralCognitionProcess a owl:Class ;
+  rdfs:label "Ephemeral Cognition Process" ;
+  rdfs:subClassOf mcog-core:ReasoningProcess ;
+  dct:description """
+A short-lived or transient reasoning process, analogous to fleeting thoughts in 
+biological cognition. Ephemeral cognitions might never reach full articulation 
+unless captured or reflected upon in time.
+"""@en .
+
+mcog-core:BiomimeticDimension a owl:Class ;
+  rdfs:label "Biomimetic Dimension" ;
+  rdfs:subClassOf mcog-core:Reflection ;
+  dct:description """
+A reflection approach or layer that emulates cycles observed in natural systems—iterative 
+adaptation, emergence, and dissolution. Captures how ephemeral or stealth-like states 
+arise, transform, or vanish similarly to adaptive processes in living organisms.
+"""@en .
+
+################################################################################
+# OBJECT PROPERTIES (UNMODIFIED + NEW)
 ################################################################################
 
 mcog-core:usesHeuristic a owl:ObjectProperty ;
@@ -163,6 +214,13 @@ mcog-core:feedbackLoopFor a owl:ObjectProperty ;
   rdfs:domain mcog-core:FeedbackLoop ;
   rdfs:range mcog-core:ReasoningProcess ;
   dct:description "Indicates which reasoning process the feedback loop is meant to refine or improve."@en .
+
+### **NEW**: `hasEphemeralFocus`
+mcog-core:hasEphemeralFocus a owl:ObjectProperty ;
+  rdfs:label "has Ephemeral Focus" ;
+  rdfs:domain mcog-core:EphemeralCognitionProcess ;
+  rdfs:range mcog-core:Reflection ;
+  dct:description "Indicates a reflection (or set of reflections) that momentarily captured or addressed an otherwise fleeting cognition process."@en .
 
 ################################################################################
 # DATATYPE PROPERTIES
@@ -242,3 +300,10 @@ mcog-core:biasMitigationStrategy a owl:DatatypeProperty ;
   rdfs:domain mcog-core:Bias ;
   rdfs:range xsd:string ;
   dct:description "An approach or tactic to reduce or counteract the effects of the bias (e.g., 'consider the opposite', 'seek disconfirming evidence')."@en .
+
+### **NEW**: `transientLevel`
+mcog-core:transientLevel a owl:DatatypeProperty ;
+  rdfs:label "transient Level" ;
+  rdfs:domain mcog-core:EphemeralCognitionProcess ;
+  rdfs:range xsd:float ;
+  dct:description "A measure (0.0 to 1.0 or similar) indicating how fleeting or short-lived an ephemeral cognition process is. Higher values suggest more rapid dissipation or fleetingness."@en .
