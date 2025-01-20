@@ -226,29 +226,80 @@ mcog-core:hasEphemeralFocus a owl:ObjectProperty ;
 # DATATYPE PROPERTIES
 ################################################################################
 
-mcog-core:propositionContent a owl:DatatypeProperty ; rdfs:label "proposition Content" ; rdfs:domain mcog-core:Proposition ; rdfs:range xsd:string ; dct:description "The textual or symbolic content of a proposition."@en .
+mcog-core:propositionContent a owl:DatatypeProperty ;
+  rdfs:label "proposition Content" ;
+  rdfs:domain mcog-core:Proposition ;
+  rdfs:range xsd:string ;
+  dct:description "The textual or symbolic content of a proposition."@en .
 
-mcog-core:hypothesisContent a owl:DatatypeProperty ; rdfs:label "hypothesis Content" ; rdfs:subPropertyOf mcog-core:propositionContent ; rdfs:domain mcog-core:Hypothesis ; rdfs:range xsd:string ; dct:description "A textual statement or representation of the hypothesis."@en .
+mcog-core:hypothesisContent a owl:DatatypeProperty ;
+  rdfs:label "hypothesis Content" ;
+  rdfs:subPropertyOf mcog-core:propositionContent ;
+  rdfs:domain mcog-core:Hypothesis ;
+  rdfs:range xsd:string ;
+  dct:description "A textual statement or representation of the hypothesis."@en .
 
-mcog-core:certaintyValue a owl:DatatypeProperty ; rdfs:label "certainty Value" ; rdfs:domain mcog-core:CertaintyEvaluation ; rdfs:range xsd:float ; dct:description "A quantitative measure of certainty or confidence (e.g., probability, confidence level)."@en .
+mcog-core:certaintyValue a owl:DatatypeProperty ;
+  rdfs:label "certainty Value" ;
+  rdfs:domain mcog-core:CertaintyEvaluation ;
+  rdfs:range xsd:float ;
+  dct:description "A quantitative measure of certainty or confidence (e.g., probability, confidence level)."@en .
 
-mcog-core:confidenceValue a owl:DatatypeProperty ; rdfs:label "confidence Value" ; rdfs:subPropertyOf mcog-core:certaintyValue ; rdfs:domain mcog-core:ConfidenceAssessment ; rdfs:range xsd:float ; dct:description "A numerical score (e.g., 0.0 to 1.0) reflecting confidence in the related hypothesis or conclusion."@en .
+mcog-core:confidenceValue a owl:DatatypeProperty ;
+  rdfs:label "confidence Value" ;
+  rdfs:subPropertyOf mcog-core:certaintyValue ;
+  rdfs:domain mcog-core:ConfidenceAssessment ;
+  rdfs:range xsd:float ;
+  dct:description "A numerical score (e.g., 0.0 to 1.0) reflecting confidence in the related hypothesis or conclusion."@en .
 
-mcog-core:evaluationRationale a owl:DatatypeProperty ; rdfs:label "evaluation Rationale" ; rdfs:domain mcog-core:CertaintyEvaluation ; rdfs:range xsd:string ; dct:description "A justification or explanation for the assigned certainty value."@en .
+mcog-core:evaluationRationale a owl:DatatypeProperty ;
+  rdfs:label "evaluation Rationale" ;
+  rdfs:domain mcog-core:CertaintyEvaluation ;
+  rdfs:range xsd:string ;
+  dct:description "A justification or explanation for the assigned certainty value."@en .
 
-mcog-core:confidenceRationale a owl:DatatypeProperty ; rdfs:label "confidence Rationale" ; rdfs:subPropertyOf mcog-core:evaluationRationale ; rdfs:domain mcog-core:ConfidenceAssessment ; rdfs:range xsd:string ; dct:description "A brief explanation or justification for the assigned confidence value."@en .
+mcog-core:confidenceRationale a owl:DatatypeProperty ;
+  rdfs:label "confidence Rationale" ;
+  rdfs:subPropertyOf mcog-core:evaluationRationale ;
+  rdfs:domain mcog-core:ConfidenceAssessment ;
+  rdfs:range xsd:string ;
+  dct:description "A brief explanation or justification for the assigned confidence value."@en .
 
-mcog-core:reflectionText a owl:DatatypeProperty ; rdfs:label "reflection Text" ; rdfs:domain mcog-core:Reflection ; rdfs:range xsd:string ; dct:description "Free-text capturing the introspective commentary or critique of the reasoning process, proposition, or certainty evaluation."@en .
+mcog-core:reflectionText a owl:DatatypeProperty ;
+  rdfs:label "reflection Text" ;
+  rdfs:domain mcog-core:Reflection ;
+  rdfs:range xsd:string ;
+  dct:description "Free-text capturing the introspective commentary or critique of the reasoning process, proposition, or certainty evaluation."@en .
 
-mcog-core:reflectionTimestamp a owl:DatatypeProperty ; rdfs:label "reflection Timestamp" ; rdfs:domain mcog-core:Reflection ; rdfs:range xsd:dateTime ; dct:description "Records the date/time at which the reflection occurred."@en .
+mcog-core:reflectionTimestamp a owl:DatatypeProperty ;
+  rdfs:label "reflection Timestamp" ;
+  rdfs:domain mcog-core:Reflection ;
+  rdfs:range xsd:dateTime ;
+  dct:description "Records the date/time at which the reflection occurred."@en .
 
-mcog-core:heuristicName a owl:DatatypeProperty ; rdfs:label "heuristic Name" ; rdfs:domain mcog-core:Heuristic ; rdfs:range xsd:string ; dct:description "A label or title for the heuristic (e.g., 'Availability Heuristic', 'Representativeness Heuristic')."@en .
+mcog-core:heuristicName a owl:DatatypeProperty ;
+  rdfs:label "heuristic Name" ;
+  rdfs:domain mcog-core:Heuristic ;
+  rdfs:range xsd:string ;
+  dct:description "A label or title for the heuristic (e.g., 'Availability Heuristic', 'Representativeness Heuristic')."@en .
 
-mcog-core:biasName a owl:DatatypeProperty ; rdfs:label "bias Name" ; rdfs:domain mcog-core:Bias ; rdfs:range xsd:string ; dct:description "A label or name for the cognitive bias (e.g., 'Confirmation Bias', 'Anchoring Bias')."@en .
+mcog-core:biasName a owl:DatatypeProperty ;
+  rdfs:label "bias Name" ;
+  rdfs:domain mcog-core:Bias ;
+  rdfs:range xsd:string ;
+  dct:description "A label or name for the cognitive bias (e.g., 'Confirmation Bias', 'Anchoring Bias')."@en .
 
-mcog-core:biasImpact a owl:DatatypeProperty ; rdfs:label "bias Impact" ; rdfs:domain mcog-core:Bias ; rdfs:range xsd:string ; dct:description "Description of how this bias might distort or affect a reasoning process, belief formation, or decision-making."@en .
+mcog-core:biasImpact a owl:DatatypeProperty ;
+  rdfs:label "bias Impact" ;
+  rdfs:domain mcog-core:Bias ;
+  rdfs:range xsd:string ;
+  dct:description "Description of how this bias might distort or affect a reasoning process, belief formation, or decision-making."@en .
 
-mcog-core:biasMitigationStrategy a owl:DatatypeProperty ; rdfs:label "bias Mitigation Strategy" ; rdfs:domain mcog-core:Bias ; rdfs:range xsd:string ; dct:description "An approach or tactic to reduce or counteract the effects of the bias (e.g., 'consider the opposite', 'seek disconfirming evidence')."@en .
+mcog-core:biasMitigationStrategy a owl:DatatypeProperty ;
+  rdfs:label "bias Mitigation Strategy" ;
+  rdfs:domain mcog-core:Bias ;
+  rdfs:range xsd:string ;
+  dct:description "An approach or tactic to reduce or counteract the effects of the bias (e.g., 'consider the opposite', 'seek disconfirming evidence')."@en .
 
 ### **NEW**: `transientLevel`
 mcog-core:transientLevel a owl:DatatypeProperty ;
